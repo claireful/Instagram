@@ -128,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="992.79999999999995" y="136.28185907046478"/>
         </scene>
-        <!--View Controller-->
+        <!--Photo Map View Controller-->
         <scene sceneID="d2c-li-V0M">
             <objects>
-                <viewController id="RFb-re-8Dc" sceneMemberID="viewController">
+                <viewController id="RFb-re-8Dc" customClass="PhotoMapViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="djc-HZ-FbM"/>
                         <viewControllerLayoutGuide type="bottom" id="Kjb-bE-MNU"/>
@@ -147,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="1944.8" y="1005.2473763118442"/>
         </scene>
-        <!--View Controller-->
+        <!--Instagram-->
         <scene sceneID="V65-NH-wwF">
             <objects>
-                <viewController id="bK1-Es-uNG" sceneMemberID="viewController">
+                <viewController id="bK1-Es-uNG" customClass="ProfileViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8rR-AA-HG0"/>
                         <viewControllerLayoutGuide type="bottom" id="dbN-Nw-3wT"/>
@@ -158,9 +158,27 @@
                     <view key="view" contentMode="scaleToFill" id="i71-5N-HVx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.66507628600000002" green="0.54584460099999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="y5b-fG-qb9"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Instagram" id="y5b-fG-qb9">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="zFQ-qG-dEA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lod-ih-k7d">
+                                <rect key="frame" x="311" y="7" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onLogout:" destination="bK1-Es-uNG" eventType="touchUpInside" id="Ezd-16-NiA"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="logoutSegue" id="jma-i8-ukQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocd-0V-OER" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
