@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					495A8FB01F02F6E300B2736A = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 5JTWQYEJ7H;
 						ProvisioningStyle = Automatic;
 					};
 					495A8FC41F02F6E300B2736A = {
@@ -412,6 +413,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5JTWQYEJ7H;
 				INFOPLIST_FILE = Instagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.claire.Instagram;
@@ -424,6 +426,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5JTWQYEJ7H;
 				INFOPLIST_FILE = Instagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.claire.Instagram;
