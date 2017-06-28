@@ -9,27 +9,31 @@
 import UIKit
 
 class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    //Action
+    @IBAction func onCameraClick(_ sender: Any) {
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = true
+        vc.sourceType = .camera
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func onLibraryClick(_ sender: Any) {
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = true
+        vc.sourceType = .photoLibrary
+        self.present(vc, animated: true, completion: nil)
+
+    }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        let vc = UIImagePickerController()
-        vc.delegate = self
-        vc.allowsEditing = true
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            print("Camera is available 📸")
-            vc.sourceType = .camera
-        } else {
-            print("Camera 🚫 available so we will use photo library instead")
-            vc.sourceType = .photoLibrary
-        }
-        
-        self.present(vc, animated: true, completion: nil)
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController,
@@ -39,7 +43,8 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
         // Do something with the images (based on your use case)
-        
+        //go to postViewController
+        self.performSegue(withIdentifier: "postSegue", sender: nil)
         // Dismiss UIImagePickerController to go back to your original view controller
         dismiss(animated: true, completion: nil)
         

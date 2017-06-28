@@ -139,13 +139,79 @@
                     <view key="view" contentMode="scaleToFill" id="JW4-os-Qzh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qt7-MA-znG">
+                                <rect key="frame" x="78" y="318" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="onCameraClick:" destination="RFb-re-8Dc" eventType="touchUpInside" id="3ee-z3-ZK3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mT6-Nt-8MW">
+                                <rect key="frame" x="264" y="318" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Library"/>
+                                <connections>
+                                    <action selector="onLibraryClick:" destination="RFb-re-8Dc" eventType="touchUpInside" id="Yst-j1-qqj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.75713646130000001" green="1" blue="0.8627804831" alpha="0.39970290489999999" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="GpT-eU-9w2"/>
+                    <connections>
+                        <segue destination="kex-qa-DcB" kind="show" identifier="postSegue" id="uub-lM-6Dm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zCV-1z-TEC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1944.8" y="1005.2473763118442"/>
+        </scene>
+        <!--Post View Controller-->
+        <scene sceneID="BOD-Yc-tRU">
+            <objects>
+                <viewController id="kex-qa-DcB" customClass="PostViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eXt-lI-uxc"/>
+                        <viewControllerLayoutGuide type="bottom" id="rxY-1t-eFR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DJs-T6-qNK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cwN-bt-VsC">
+                                <rect key="frame" x="16" y="103" width="343" height="332"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r3n-n4-tHs">
+                                <rect key="frame" x="16" y="448" width="343" height="162"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SdN-ra-4HJ">
+                                <rect key="frame" x="321" y="72" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="onPost:" destination="kex-qa-DcB" eventType="touchUpInside" id="ms0-2a-AS5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="captionText" destination="r3n-n4-tHs" id="8zp-xS-wk8"/>
+                        <outlet property="postImageView" destination="cwN-bt-VsC" id="wO6-Uy-FDN"/>
+                        <segue destination="7wV-Ih-AYE" kind="presentation" identifier="postPostSegue" id="NEb-Mi-8ct"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="24L-Dh-Xj7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1908" y="1838.2308845577213"/>
         </scene>
         <!--Instagram-->
         <scene sceneID="V65-NH-wwF">
@@ -223,4 +289,7 @@
             <point key="canvasLocation" x="2864.8000000000002" y="1004.3478260869566"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="NEb-Mi-8ct"/>
+    </inferredMetricsTieBreakers>
 </document>
