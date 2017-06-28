@@ -21,9 +21,17 @@ class PostViewController: UIViewController {
     //Actions
     @IBAction func onPost(_ sender: Any) {
         //send to parse and check error
-        
-        print("did click")
-        self.performSegue(withIdentifier: "postPostSegue", sender: nil)
+        post = resize(image: post!, newSize: CGSize(width: 750, height: 750))
+        Post.postUserImage(image: post, withCaption: captionText.text) { (bool: Bool, error: Error?) in
+            if error != nil {
+                print(error?.localizedDescription ?? "ERROR")
+                //do nothing
+            } else {
+                print("successfully posted")
+                self.performSegue(withIdentifier: "postPostSegue", sender: nil)
+            }
+        }
+        //self.performSegue(withIdentifier: "postPostSegue", sender: nil)
     }
     
     //Actions
@@ -36,11 +44,22 @@ class PostViewController: UIViewController {
         super.viewDidLoad()
         if post != nil {
             postImageView.image = post
-            //postImageView.af_set}
         } else {
             print("something went wrong")
         }
         // Do any additional setup after loading the view.
+    }
+    
+    func resize(image: UIImage, newSize: CGSize) -> UIImage {
+        let resizeImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        resizeImageView.contentMode = UIViewContentMode.scaleAspectFill
+        resizeImageView.image = image
+        
+        UIGraphicsBeginImageContext(resizeImageView.frame.size)
+        resizeImageView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
     }
 
 
