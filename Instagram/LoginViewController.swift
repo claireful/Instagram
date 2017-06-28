@@ -42,6 +42,11 @@ class LoginViewController: UIViewController {
         
     }
     
+    @IBAction func onTap(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

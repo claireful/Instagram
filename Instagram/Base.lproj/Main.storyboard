@@ -60,6 +60,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="hZw-mg-uFc" appends="YES" id="asm-l6-Ij6"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="passwordField" destination="G7Y-nw-Qis" id="0rN-Wh-SaV"/>
@@ -68,6 +72,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="hZw-mg-uFc">
+                    <connections>
+                        <action selector="onTap:" destination="BYZ-38-t0r" id="poP-Nf-SCw"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>
@@ -115,6 +124,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="7wV-Ih-AYE" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="tTB-xu-dBW">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -181,11 +191,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cwN-bt-VsC">
-                                <rect key="frame" x="16" y="103" width="343" height="332"/>
+                                <rect key="frame" x="16" y="103" width="162" height="157"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r3n-n4-tHs">
-                                <rect key="frame" x="16" y="448" width="343" height="162"/>
+                                <rect key="frame" x="16" y="289" width="343" height="162"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -193,7 +203,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SdN-ra-4HJ">
-                                <rect key="frame" x="321" y="72" width="31" height="30"/>
+                                <rect key="frame" x="274" y="166" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Post"/>
                                 <connections>
@@ -202,6 +212,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="M2G-ZZ-LWd" appends="YES" id="jN4-zQ-8u2"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="captionText" destination="r3n-n4-tHs" id="8zp-xS-wk8"/>
@@ -210,6 +224,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="24L-Dh-Xj7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="M2G-ZZ-LWd">
+                    <connections>
+                        <action selector="onTap:" destination="kex-qa-DcB" id="gC7-lC-UKj"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1908" y="1838.2308845577213"/>
         </scene>
@@ -290,6 +309,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NEb-Mi-8ct"/>
+        <segue reference="8Zr-V5-XK9"/>
     </inferredMetricsTieBreakers>
 </document>

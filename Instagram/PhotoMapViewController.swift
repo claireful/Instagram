@@ -10,6 +10,9 @@ import UIKit
 
 class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    //Variables
+    var picture: UIImage? = nil
+    
     //Action
     @IBAction func onCameraClick(_ sender: Any) {
         let vc = UIImagePickerController()
@@ -41,7 +44,7 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         // Get the image captured by the UIImagePickerController
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
-        
+        picture = editedImage
         // Do something with the images (based on your use case)
         //go to postViewController
         self.performSegue(withIdentifier: "postSegue", sender: nil)
@@ -60,10 +63,14 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    */
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! PostViewController
+        vc.post = picture
+
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
