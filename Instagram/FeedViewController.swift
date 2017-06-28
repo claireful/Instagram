@@ -22,18 +22,34 @@ class FeedViewController: UIViewController,UITableViewDataSource, UITableViewDel
 
         tableView.delegate = self
         tableView.dataSource = self
-        print("before ref")
         refresh()
-        print("after ref")
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
         
         
         // Do any additional setup after loading the view.
+    }
+    
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        
+        // ... Create the URLRequest `myRequest` ...
+        
+        // Configure session so that completion handler is executed on main UI thread
+        refresh()
+        // ... Use the new data to update the data source ...
+        // Reload the tableView now that there is new data
+        tableView.reloadData()
+            
+            // Tell the refreshControl to stop spinning
+        refreshControl.endRefreshing()
     }
     
     func refresh(){
         var query = PFQuery(className: "Post")
         query.includeKey("author")
         query.addDescendingOrder("createdAt")
+        query.limit = 20 //hardcoded
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
             if error == nil {
                 self.posts = posts
@@ -66,13 +82,6 @@ class FeedViewController: UIViewController,UITableViewDataSource, UITableViewDel
         cell.instagramPost = post //set PFObject to be accessed in post cell
         
         
-        
-        var count: Int = 0
-        for post in posts!{
-            count+=1
-            print(count)
-            print(post["caption"])
-        }
         return cell
     }
 
@@ -86,10 +95,12 @@ class FeedViewController: UIViewController,UITableViewDataSource, UITableViewDel
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

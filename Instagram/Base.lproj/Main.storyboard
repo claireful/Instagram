@@ -152,11 +152,30 @@
                     <navigationItem key="navigationItem" title="Instagram" id="tIy-8g-LyT"/>
                     <connections>
                         <outlet property="tableView" destination="d7e-xe-3n8" id="4TZ-QJ-59B"/>
+                        <segue destination="Q6E-0P-fm5" kind="show" id="Y0Y-OV-Ecq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jO9-c3-e9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2869.5999999999999" y="135.38230884557723"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="vMn-rz-kCG">
+            <objects>
+                <viewController id="Q6E-0P-fm5" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vwo-1T-Be7"/>
+                        <viewControllerLayoutGuide type="bottom" id="SWH-GZ-GuH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pmm-eB-S6I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DI6-k6-lLk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3967" y="137"/>
         </scene>
         <!--Item-->
         <scene sceneID="xBL-hR-R5g">
