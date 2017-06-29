@@ -380,13 +380,22 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Kqc-ut-har">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfilePhotoCell" id="Kqc-ut-har" customClass="ProfilePhotoCell" customModule="Instagram" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Ia-eF-jA1" customClass="PFImageView">
+                                                    <rect key="frame" x="0.0" y="-8" width="108" height="116"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
+                                        <connections>
+                                            <outlet property="profileImageView" destination="5Ia-eF-jA1" id="Iig-G9-HtE"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -433,6 +442,10 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="collectionView" destination="XbP-zZ-qaS" id="cnt-k4-fz0"/>
+                        <outlet property="descriptionLabel" destination="dUf-8k-eW7" id="1lf-36-TcT"/>
+                        <outlet property="profileImageView" destination="Acp-Q9-iKX" id="gnU-Xh-kVc"/>
+                        <outlet property="usernameLabel" destination="T7H-dt-xzl" id="7oW-9M-Ps6"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="logoutSegue" id="jma-i8-ukQ"/>
                     </connections>
                 </viewController>

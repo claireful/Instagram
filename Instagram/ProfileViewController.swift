@@ -9,8 +9,19 @@
 import UIKit
 import Parse
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UICollectionViewDataSource {
+    //Variables
+    var posts: [PFObject]?
+    
+    //Outlets
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
 
+    
+    
+    
     //Actions
     @IBAction func onLogout(_ sender: Any) {
         PFUser.logOutInBackground { (error: Error?) in
@@ -23,10 +34,45 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    func refreshForUser(){
+        //TODO sort only with current user
+        var query = PFQuery(className: "Post")
+        query.includeKey("author")
+        query.addDescendingOrder("createdAt")
+        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
+            if error == nil {
+                self.posts = posts
+                self.collectionView.reloadData()
+            } else {
+                print(error ?? "ERROR")
+            }
+            
+        }
+        
+    }
+    
+    //data source methods
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return posts?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfilePhotoCell", for: indexPath) as! ProfilePhotoCell
+        let post = posts?[indexPath.item]
+        cell.instagramPost = post //set PFObject to be accessed in post cell
+        return cell
+
+    }
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        collectionView.dataSource = self
+        let curUser = PFUser.current()
+        usernameLabel.text = curUser?.username
+        refreshForUser()
+        
         // Do any additional setup after loading the view.
     }
 
