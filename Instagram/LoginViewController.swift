@@ -21,9 +21,13 @@ class LoginViewController: UIViewController {
             if user != nil {
                 print("Logged In")
                 self.performSegue(withIdentifier: "LoginSegue", sender: nil)
+            } else {
+                self.showAlert()
             }
         }
     }
+    
+    
     
     @IBAction func onSIgnUp(_ sender: Any) {
         let newUser = PFUser()
@@ -35,6 +39,7 @@ class LoginViewController: UIViewController {
                 print("Sign Up Successful!")
                 self.performSegue(withIdentifier: "LoginSegue", sender: nil)
             } else {
+                self.showAlert()
                 print(error?.localizedDescription ?? "Error")
             }
 
@@ -52,6 +57,18 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+
+    func showAlert(){
+        let alertController = UIAlertController(title: "Error", message: "Did not enter username or password correctly.", preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            //handle response here
+        }
+        alertController.addAction(OKAction)
+        present(alertController, animated: true){
+            //optional code for what happens after the alert controller has finished presenting
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

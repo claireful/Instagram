@@ -34,12 +34,12 @@ class PostDetailsViewController: UIViewController {
         postImageView.file = post?["media"] as? PFFile
         postImageView.loadInBackground()
         
+        //some date formatting
         let date = NSDate()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from:post?.createdAt as! Date)
         timestampLabel.text = dateString
-        print(dateString)
 
         // Do any additional setup after loading the view.
     }
