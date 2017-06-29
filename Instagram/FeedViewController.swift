@@ -13,6 +13,7 @@ class FeedViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     //Variables
     var posts: [PFObject]?
+    var thisUser: PFUser?
     
     //Outlet
     @IBOutlet weak var tableView: UITableView!
@@ -55,7 +56,7 @@ class FeedViewController: UIViewController,UITableViewDataSource, UITableViewDel
                 self.posts = posts
                 self.tableView.reloadData()
             } else {
-                print(error)
+                print(error ?? "ERROR")
             }
 
         }
@@ -69,14 +70,10 @@ class FeedViewController: UIViewController,UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
         let post = posts![indexPath.row]
-        if let user = post["author"] as? PFUser{
-            cell.usernameLabel.text = user.username
-        } else {
-            cell.usernameLabel.text = "Guest 💩"
-        }
-        //let user = post["author"] as? PFUser
-        //et username = user?.username
-        //cell.usernameLabel.text = username
+        
+        let user = post["author"] as? PFUser
+        cell.usernameLabel.text = user?.username
+        thisUser = user
         
         cell.captionLabel.text = post["caption"] as! String
         cell.instagramPost = post //set PFObject to be accessed in post cell
@@ -97,9 +94,14 @@ class FeedViewController: UIViewController,UITableViewDataSource, UITableViewDel
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! PostDetailsViewController
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)!
+        let post = posts?[indexPath.row]
+        //print(indexPath.row)
+        vc.post = post
+        vc.user = thisUser
         
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
     
 
