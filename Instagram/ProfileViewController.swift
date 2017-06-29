@@ -37,6 +37,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
     func refreshForUser(){
         //TODO sort only with current user
         var query = PFQuery(className: "Post")
+        query.whereKey("author", equalTo: PFUser.current())
         query.includeKey("author")
         query.addDescendingOrder("createdAt")
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
