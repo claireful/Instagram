@@ -15,6 +15,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     //Outlets
     @IBOutlet weak var profImageView: PFImageView!
 
+    @IBOutlet weak var descriptionField: UITextView!
     
     
     //Actions
@@ -24,7 +25,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         let profPic = Post.getPFFileFromImage(image: profImageView.image)
         curUser?.setObject(profPic, forKey: "prof_pic")
-        //curUser.setObject("im a fub", forKey: "description")
+        curUser?.setObject(descriptionField.text, forKey: "description")
         curUser?.saveInBackground(block: { (success: Bool, error: Error?) in
             if success {
                 self.dismiss(animated: true, completion: { 
@@ -63,6 +64,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         let curUser = PFUser.current()
         profImageView.file = curUser?.object(forKey: "prof_pic") as? PFFile
         profImageView.loadInBackground()
+        //PFUser.current()?.object(forKey: "description") as? String
         // Do any additional setup after loading the view.
     }
 

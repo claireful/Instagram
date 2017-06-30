@@ -85,7 +85,8 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         print("hey")
         profImageView.file = curUser?.object(forKey: "prof_pic") as? PFFile
         profImageView.loadInBackground()
-        
+        descriptionLabel.text = curUser?.object(forKey:
+        "description") as! String
         print("alright")
         
         // Do any additional setup after loading the view.

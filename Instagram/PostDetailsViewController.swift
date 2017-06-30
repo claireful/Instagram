@@ -18,6 +18,7 @@ class PostDetailsViewController: UIViewController {
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
+    @IBOutlet weak var profImageView: PFImageView!
     
     //Variable
     var post: PFObject?
@@ -34,6 +35,11 @@ class PostDetailsViewController: UIViewController {
             
             postImageView.file = post["media"] as? PFFile
             postImageView.loadInBackground()
+            
+            let curUser = PFUser.current()
+            
+            profImageView.file = curUser?.object(forKey: "prof_pic") as? PFFile
+            profImageView.loadInBackground()
             
             if let user = post["author"] as? PFUser {
                 print("We have a user in Detail")
