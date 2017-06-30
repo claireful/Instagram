@@ -126,8 +126,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z9V-9Q-Mbk">
-                                                    <rect key="frame" x="13" y="8" width="48" height="45"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z9V-9Q-Mbk" customClass="PFImageView">
+                                                    <rect key="frame" x="13" y="8" width="45" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eWt-am-vYv" customClass="PFImageView">
@@ -147,7 +147,7 @@
                                         <connections>
                                             <outlet property="captionLabel" destination="aMd-cy-5Jo" id="Imf-07-sHl"/>
                                             <outlet property="postImageView" destination="eWt-am-vYv" id="HfB-jM-xxR"/>
-                                            <outlet property="profileImageView" destination="Z9V-9Q-Mbk" id="GbW-dr-2FC"/>
+                                            <outlet property="profImageView" destination="Z9V-9Q-Mbk" id="Ydt-Xg-6tq"/>
                                             <outlet property="usernameLabel" destination="av9-Bf-rnw" id="O7V-rX-WsD"/>
                                             <segue destination="Q6E-0P-fm5" kind="show" id="GTm-bD-aiV"/>
                                         </connections>
@@ -400,7 +400,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Acp-Q9-iKX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Acp-Q9-iKX" customClass="PFImageView">
                                 <rect key="frame" x="16" y="108" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -448,7 +448,7 @@
                     <connections>
                         <outlet property="collectionView" destination="XbP-zZ-qaS" id="cnt-k4-fz0"/>
                         <outlet property="descriptionLabel" destination="dUf-8k-eW7" id="1lf-36-TcT"/>
-                        <outlet property="profileImageView" destination="Acp-Q9-iKX" id="gnU-Xh-kVc"/>
+                        <outlet property="profImageView" destination="Acp-Q9-iKX" id="f03-cR-YSa"/>
                         <outlet property="usernameLabel" destination="T7H-dt-xzl" id="7oW-9M-Ps6"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="logoutSegue" id="jma-i8-ukQ"/>
                         <segue destination="7za-U4-kFw" kind="presentation" identifier="editSegue" id="naC-Pu-Qb0"/>
@@ -478,7 +478,7 @@
                                     <action selector="onDone:" destination="7za-U4-kFw" eventType="touchUpInside" id="oNF-BH-1fh"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8fB-vI-rjW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8fB-vI-rjW" customClass="PFImageView">
                                 <rect key="frame" x="122" y="65" width="130" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -494,7 +494,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="profileImageView" destination="8fB-vI-rjW" id="47U-JW-1aC"/>
+                        <outlet property="profImageView" destination="8fB-vI-rjW" id="aVx-Ei-uGm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9uu-EQ-ez0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -548,6 +548,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8Zr-V5-XK9"/>
-        <segue reference="gOw-hV-rTN"/>
+        <segue reference="GTm-bD-aiV"/>
     </inferredMetricsTieBreakers>
 </document>

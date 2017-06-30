@@ -7,20 +7,31 @@
 //
 
 import UIKit
+import ParseUI
+import Parse
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //Outlets
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profImageView: PFImageView!
+
     
     
     //Actions
     @IBAction func onDone(_ sender: Any) {
         //do shit to save
+        let curUser = PFUser.current()
         
-        self.dismiss(animated: true) { 
-            //
-        }
+        let profPic = Post.getPFFileFromImage(image: profImageView.image)
+        curUser?.setObject(profPic, forKey: "prof_pic")
+        //curUser.setObject("im a fub", forKey: "description")
+        curUser?.saveInBackground(block: { (success: Bool, error: Error?) in
+            if success {
+                self.dismiss(animated: true, completion: { 
+                    //saveddddd
+                })
+            }
+        })
     }
     
     @IBAction func onTake(_ sender: Any) {
@@ -36,7 +47,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         // Get the image captured by the UIImagePickerController
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
-        profileImageView.image = editedImage
+        profImageView.image = editedImage
         
         // Do something with the images (based on your use case)
         //go to postViewController
@@ -49,7 +60,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let curUser = PFUser.current()
+        profImageView.file = curUser?.object(forKey: "prof_pic") as? PFFile
+        profImageView.loadInBackground()
         // Do any additional setup after loading the view.
     }
 

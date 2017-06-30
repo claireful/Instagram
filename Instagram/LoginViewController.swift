@@ -38,6 +38,16 @@ class LoginViewController: UIViewController {
             
         newUser.signUpInBackground { (success: Bool, error: Error?) in
             if success {
+                let defaultIcon = Post.getPFFileFromImage(image: (UIImage(named: "user_icon")))
+                newUser.setObject(defaultIcon, forKey: "prof_pic")
+                newUser.setObject("im a fub", forKey: "description")
+                newUser.saveInBackground(block: { (sucess: Bool, error:Error?) in
+                    if (sucess != nil) {
+                        print("eyyyyyyyyy saveddddd")
+                    } else {
+                        print("boo")
+                    }
+                })
                 print("Sign Up Successful!")
                 self.usernameField.text = ""
                 self.passwordField.text = ""

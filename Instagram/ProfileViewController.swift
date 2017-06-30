@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 class ProfileViewController: UIViewController, UICollectionViewDataSource {
     //Variables
@@ -17,7 +18,9 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var profileImageView: UIImageView!
+
+    @IBOutlet weak var profImageView: PFImageView!
+
     
     
     
@@ -79,6 +82,11 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         let curUser = PFUser.current()
         usernameLabel.text = curUser?.username
         refreshForUser()
+        print("hey")
+        profImageView.file = curUser?.object(forKey: "prof_pic") as? PFFile
+        profImageView.loadInBackground()
+        
+        print("alright")
         
         // Do any additional setup after loading the view.
     }
