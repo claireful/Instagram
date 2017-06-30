@@ -348,7 +348,7 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="captionText" destination="r3n-n4-tHs" id="8zp-xS-wk8"/>
+                        <outlet property="captionText" destination="r3n-n4-tHs" id="Piw-sO-Ux7"/>
                         <outlet property="postImageView" destination="cwN-bt-VsC" id="wO6-Uy-FDN"/>
                         <segue destination="7wV-Ih-AYE" kind="presentation" identifier="postPostSegue" id="NEb-Mi-8ct"/>
                     </connections>
@@ -510,6 +510,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWs-z6-KEF">
+                                <rect key="frame" x="15" y="20" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="onCancel:" destination="7za-U4-kFw" eventType="touchUpInside" id="NZO-vX-JWP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAs-oB-x3m">
+                                <rect key="frame" x="109" y="241" width="157" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Choose Gallary Picture"/>
+                                <connections>
+                                    <action selector="onChoose:" destination="7za-U4-kFw" eventType="touchUpInside" id="Ljo-px-qYD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -568,7 +584,7 @@
         <image name="profile_tab" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8Zr-V5-XK9"/>
+        <segue reference="NEb-Mi-8ct"/>
         <segue reference="gOw-hV-rTN"/>
     </inferredMetricsTieBreakers>
 </document>

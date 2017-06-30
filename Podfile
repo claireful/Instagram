@@ -8,6 +8,7 @@ use_frameworks!
   # Pods for Instagram
   pod 'Parse'
   pod 'ParseUI'
+  pod 'RSKPlaceholderTextView'
   target 'InstagramTests' do
     inherit! :search_paths
     # Pods for testing

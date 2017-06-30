@@ -35,11 +35,27 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         })
     }
     
+    @IBAction func onCancel(_ sender: Any) {
+        self.dismiss(animated: true) { 
+            //done
+        }
+    }
+    
+    
     @IBAction func onTake(_ sender: Any) {
         let vc = UIImagePickerController()
         vc.delegate = self
         vc.allowsEditing = true
         vc.sourceType = .camera
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func onChoose(_ sender: Any) {
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = true
+        vc.sourceType = .photoLibrary
         self.present(vc, animated: true, completion: nil)
     }
     
