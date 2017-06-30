@@ -18,21 +18,34 @@ class PostDetailsViewController: UIViewController {
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
-
+    
     //Variable
     var post: PFObject?
-    var user: PFUser?
+    //    var user: PFUser?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        usernameLabel.text = user?.username
-        captionLabel.text = post?["caption"] as! String
-        let likes = post?["likesCount"] as! Int
-        likesLabel.text = "Liked by " + String(likes)
+        if let post = post {
+            print("Post found in Detail")
+            captionLabel.text = post["caption"] as? String
+            let likes = post["likesCount"] as! Int
+            likesLabel.text = "Liked by " + String(likes)
+            
+            postImageView.file = post["media"] as? PFFile
+            postImageView.loadInBackground()
+            
+            if let user = post["author"] as? PFUser {
+                print("We have a user in Detail")
+                usernameLabel.text = user.username
+            } else {
+                print("No user found in Detail")
+            }
+        } else {
+            print("No post found in Detail")
+        }
         
-        postImageView.file = post?["media"] as? PFFile
-        postImageView.loadInBackground()
+        
         
         //some date formatting
         let date = NSDate()
@@ -40,24 +53,24 @@ class PostDetailsViewController: UIViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from:post?.createdAt as! Date)
         timestampLabel.text = dateString
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

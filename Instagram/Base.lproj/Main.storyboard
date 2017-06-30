@@ -64,7 +64,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kp3-iT-f9Y">
                                 <rect key="frame" x="67" y="267" width="240" height="30"/>
@@ -395,6 +395,7 @@
                                         </view>
                                         <connections>
                                             <outlet property="profileImageView" destination="5Ia-eF-jA1" id="Iig-G9-HtE"/>
+                                            <segue destination="Q6E-0P-fm5" kind="show" identifier="ProfileDetailsSegue" id="gOw-hV-rTN"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -500,5 +501,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8Zr-V5-XK9"/>
+        <segue reference="gOw-hV-rTN"/>
     </inferredMetricsTieBreakers>
 </document>

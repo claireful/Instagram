@@ -20,8 +20,12 @@ class PostCell: UITableViewCell {
     
     var instagramPost: PFObject! {
         didSet {
-            self.postImageView.file = instagramPost["media"] as? PFFile
-            self.postImageView.loadInBackground()
+            postImageView.file = instagramPost["media"] as? PFFile
+            postImageView.loadInBackground()
+            captionLabel.text = instagramPost["caption"] as? String
+            let user = instagramPost["author"] as? PFUser
+            usernameLabel.text = user?.username
+            
         }
     }
     

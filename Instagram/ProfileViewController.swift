@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
-
+    
     
     
     
@@ -28,15 +28,16 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
             if let error = error{
                 //do nothing
             } else {
-                self.performSegue(withIdentifier: "logoutSegue", sender: nil)
-                print("logout")
+                self.dismiss(animated: true, completion: {
+                    print("logout")
+                })
             }
         }
     }
     
     func refreshForUser(){
         //TODO sort only with current user
-        var query = PFQuery(className: "Post")
+        let query = PFQuery(className: "Post")
         query.whereKey("author", equalTo: PFUser.current())
         query.includeKey("author")
         query.addDescendingOrder("createdAt")
@@ -62,10 +63,10 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         let post = posts?[indexPath.item]
         cell.instagramPost = post //set PFObject to be accessed in post cell
         return cell
-
+        
     }
     
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,21 +77,32 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ProfileDetailsSegue"{
+            let vc = segue.destination as! PostDetailsViewController
+            let cell = sender as! UICollectionViewCell
+            let indexPath = collectionView.indexPath(for: cell)!
+            let post = posts?[indexPath.item]
+            //print(indexPath.row)
+            vc.post = post
+            //            vc.user = PFUser.current()
+            
+            // Get the new view controller using segue.destinationViewController.
+            // Pass the selected object to the new view controller.
+        }
+        
+        
     }
-    */
-
 }

@@ -13,7 +13,7 @@ class FeedViewController: UIViewController,UITableViewDataSource, UITableViewDel
     
     //Variables
     var posts: [PFObject]?
-    var thisUser: PFUser?
+//    var thisUser: PFUser?
     
     //Outlet
     @IBOutlet weak var tableView: UITableView!
@@ -47,7 +47,7 @@ class FeedViewController: UIViewController,UITableViewDataSource, UITableViewDel
     }
     
     func refresh(){
-        var query = PFQuery(className: "Post")
+        let query = PFQuery(className: "Post")
         query.includeKey("author")
         query.addDescendingOrder("createdAt")
         query.limit = 20 //hardcoded
@@ -71,13 +71,7 @@ class FeedViewController: UIViewController,UITableViewDataSource, UITableViewDel
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
         let post = posts![indexPath.row]
         
-        let user = post["author"] as? PFUser
-        cell.usernameLabel.text = user?.username
-        thisUser = user
-        
-        cell.captionLabel.text = post["caption"] as! String
         cell.instagramPost = post //set PFObject to be accessed in post cell
-        
         
         return cell
     }
@@ -100,7 +94,7 @@ class FeedViewController: UIViewController,UITableViewDataSource, UITableViewDel
         let post = posts?[indexPath.row]
         //print(indexPath.row)
         vc.post = post
-        vc.user = thisUser
+//        vc.user = thisUser
         
     }
     
