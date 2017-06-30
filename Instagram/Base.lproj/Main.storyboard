@@ -282,7 +282,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qt7-MA-znG">
-                                <rect key="frame" x="78" y="318" width="54" height="30"/>
+                                <rect key="frame" x="160" y="223" width="54" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Camera"/>
                                 <connections>
@@ -290,7 +290,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mT6-Nt-8MW">
-                                <rect key="frame" x="264" y="318" width="48" height="30"/>
+                                <rect key="frame" x="163" y="318" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Library"/>
                                 <connections>
@@ -298,7 +298,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.75713646130000001" green="1" blue="0.8627804831" alpha="0.39970290489999999" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="GpT-eU-9w2"/>
                     <connections>
@@ -325,7 +324,7 @@
                                 <rect key="frame" x="16" y="103" width="162" height="157"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Caption" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r3n-n4-tHs">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Caption" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r3n-n4-tHs" customClass="RSKPlaceholderTextView">
                                 <rect key="frame" x="16" y="289" width="343" height="162"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -348,7 +347,7 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="captionText" destination="r3n-n4-tHs" id="Piw-sO-Ux7"/>
+                        <outlet property="captionText" destination="r3n-n4-tHs" id="Vvc-Lw-CWg"/>
                         <outlet property="postImageView" destination="cwN-bt-VsC" id="wO6-Uy-FDN"/>
                         <segue destination="7wV-Ih-AYE" kind="presentation" identifier="postPostSegue" id="NEb-Mi-8ct"/>
                     </connections>
@@ -495,14 +494,6 @@
                                     <action selector="onTake:" destination="7za-U4-kFw" eventType="touchUpInside" id="pBo-ES-9v6"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tZi-eu-eh2">
-                                <rect key="frame" x="16" y="353" width="331" height="133"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYT-W0-dIc">
                                 <rect key="frame" x="16" y="324" width="88" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -526,15 +517,31 @@
                                     <action selector="onChoose:" destination="7za-U4-kFw" eventType="touchUpInside" id="Ljo-px-qYD"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Change Text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pE8-6L-yCI" customClass="RSKPlaceholderTextView">
+                                <rect key="frame" x="16" y="353" width="331" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Zcb-uF-edR" appends="YES" id="7AG-cH-3bo"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="descriptionField" destination="tZi-eu-eh2" id="su1-aU-hj9"/>
+                        <outlet property="placeText" destination="pE8-6L-yCI" id="4Sv-JN-kxq"/>
                         <outlet property="profImageView" destination="8fB-vI-rjW" id="aVx-Ei-uGm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9uu-EQ-ez0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Zcb-uF-edR">
+                    <connections>
+                        <action selector="onTap:" destination="7za-U4-kFw" id="Hci-mS-fr1"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4725.6000000000004" y="1004.3478260869566"/>
         </scene>

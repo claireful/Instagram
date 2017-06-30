@@ -9,14 +9,13 @@
 import UIKit
 import ParseUI
 import Parse
+import RSKPlaceholderTextView
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //Outlets
     @IBOutlet weak var profImageView: PFImageView!
-
-    @IBOutlet weak var descriptionField: UITextView!
-    
+    @IBOutlet var placeText: RSKPlaceholderTextView!
     
     //Actions
     @IBAction func onDone(_ sender: Any) {
@@ -25,7 +24,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         let profPic = Post.getPFFileFromImage(image: profImageView.image)
         curUser?.setObject(profPic, forKey: "prof_pic")
-        curUser?.setObject(descriptionField.text, forKey: "description")
+        curUser?.setObject(placeText.text, forKey: "description")
         curUser?.saveInBackground(block: { (success: Bool, error: Error?) in
             if success {
                 self.dismiss(animated: true, completion: { 
@@ -34,6 +33,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             }
         })
     }
+    
+    @IBAction func onTap(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
     
     @IBAction func onCancel(_ sender: Any) {
         self.dismiss(animated: true) { 
@@ -82,6 +86,12 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         profImageView.loadInBackground()
         //PFUser.current()?.object(forKey: "description") as? String
         // Do any additional setup after loading the view.
+        //placeholder
+        self.placeText = RSKPlaceholderTextView(frame: CGRect(x: 16 , y: 353, width: self.view.frame.width-32, height: 100))
+        self.placeText.placeholder = curUser?.object(forKey:
+            "description") as! String as NSString
+        
+        self.view.addSubview(self.placeText)
     }
 
     override func didReceiveMemoryWarning() {

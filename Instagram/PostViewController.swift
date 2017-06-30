@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RSKPlaceholderTextView
 
 class PostViewController: UIViewController {
     //Variable
@@ -16,7 +17,8 @@ class PostViewController: UIViewController {
     //Outlets
     
     @IBOutlet weak var postImageView: UIImageView!
-    @IBOutlet weak var captionText: UITextView!
+    @IBOutlet var captionText: RSKPlaceholderTextView!
+    
 
     //Actions
     @IBAction func onPost(_ sender: Any) {
@@ -48,6 +50,10 @@ class PostViewController: UIViewController {
             print("something went wrong")
         }
         // Do any additional setup after loading the view.
+        //placeholder
+        self.captionText = RSKPlaceholderTextView(frame: CGRect(x: 16 , y: 289, width: self.view.frame.width - 32, height: 100))
+        self.captionText.placeholder = "Write a Caption"
+        self.view.addSubview(self.captionText)
     }
     
     func resize(image: UIImage, newSize: CGSize) -> UIImage {
