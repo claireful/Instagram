@@ -35,6 +35,11 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         }
     }
     
+    @IBAction func onEdit(_ sender: Any) {
+        performSegue(withIdentifier: "editSegue", sender: nil)
+    }
+    
+    
     func refreshForUser(){
         //TODO sort only with current user
         let query = PFQuery(className: "Post")

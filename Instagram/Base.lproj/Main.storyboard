@@ -422,6 +422,9 @@
                                 <rect key="frame" x="294" y="207" width="75" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Edit Profile"/>
+                                <connections>
+                                    <action selector="onEdit:" destination="bK1-Es-uNG" eventType="touchUpInside" id="ebU-jM-bXF"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -448,11 +451,55 @@
                         <outlet property="profileImageView" destination="Acp-Q9-iKX" id="gnU-Xh-kVc"/>
                         <outlet property="usernameLabel" destination="T7H-dt-xzl" id="7oW-9M-Ps6"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="logoutSegue" id="jma-i8-ukQ"/>
+                        <segue destination="7za-U4-kFw" kind="presentation" identifier="editSegue" id="naC-Pu-Qb0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocd-0V-OER" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3804" y="1004.3478260869566"/>
+        </scene>
+        <!--Edit Profile View Controller-->
+        <scene sceneID="ald-VV-OxM">
+            <objects>
+                <viewController id="7za-U4-kFw" customClass="EditProfileViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xFJ-yX-Vlx"/>
+                        <viewControllerLayoutGuide type="bottom" id="NaJ-0r-AI4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vPS-y4-gEp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7s-g2-l8C">
+                                <rect key="frame" x="310" y="28" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="onDone:" destination="7za-U4-kFw" eventType="touchUpInside" id="oNF-BH-1fh"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8fB-vI-rjW">
+                                <rect key="frame" x="122" y="65" width="130" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="inl-n6-uW7">
+                                <rect key="frame" x="121" y="203" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Take Profile Picture"/>
+                                <connections>
+                                    <action selector="onTake:" destination="7za-U4-kFw" eventType="touchUpInside" id="pBo-ES-9v6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="profileImageView" destination="8fB-vI-rjW" id="47U-JW-1aC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9uu-EQ-ez0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4725.6000000000004" y="1004.3478260869566"/>
         </scene>
         <!--Camera-->
         <scene sceneID="jf8-rz-lKx">
