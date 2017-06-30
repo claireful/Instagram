@@ -51,7 +51,7 @@ class PostViewController: UIViewController {
         }
         // Do any additional setup after loading the view.
         //placeholder
-        self.captionText = RSKPlaceholderTextView(frame: CGRect(x: 16 , y: 289, width: self.view.frame.width - 32, height: 100))
+        self.captionText = RSKPlaceholderTextView(frame: CGRect(x: 16 , y: 73, width: 253, height: 162))
         self.captionText.placeholder = "Write a Caption"
         self.view.addSubview(self.captionText)
     }

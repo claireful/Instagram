@@ -40,6 +40,11 @@ class PostDetailsViewController: UIViewController {
             
             profImageView.file = curUser?.object(forKey: "prof_pic") as? PFFile
             profImageView.loadInBackground()
+            profImageView.layer.borderWidth = 1
+            profImageView.layer.masksToBounds = false
+            profImageView.layer.borderColor = UIColor.black.cgColor
+            profImageView.layer.cornerRadius = profImageView.frame.height/2
+            profImageView.clipsToBounds = true
             
             if let user = post["author"] as? PFUser {
                 print("We have a user in Detail")

@@ -83,6 +83,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         super.viewDidLoad()
         let curUser = PFUser.current()
         profImageView.file = curUser?.object(forKey: "prof_pic") as? PFFile
+        profImageView.layer.borderWidth = 1
+        profImageView.layer.masksToBounds = false
+        profImageView.layer.borderColor = UIColor.black.cgColor
+        profImageView.layer.cornerRadius = profImageView.frame.height/2
+        profImageView.clipsToBounds = true
         profImageView.loadInBackground()
         //PFUser.current()?.object(forKey: "description") as? String
         // Do any additional setup after loading the view.
@@ -90,7 +95,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         self.placeText = RSKPlaceholderTextView(frame: CGRect(x: 16 , y: 353, width: self.view.frame.width-32, height: 100))
         self.placeText.placeholder = curUser?.object(forKey:
             "description") as! String as NSString
-        
         self.view.addSubview(self.placeText)
     }
 

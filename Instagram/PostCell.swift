@@ -23,6 +23,10 @@ class PostCell: UITableViewCell {
     var instagramPost: PFObject! {
         didSet {
             postImageView.file = instagramPost["media"] as? PFFile
+            postImageView.layer.cornerRadius = 10
+            postImageView.clipsToBounds = true
+            postImageView.layer.borderWidth = 3
+            postImageView.layer.borderColor = UIColor.white.cgColor
             postImageView.loadInBackground()
             captionLabel.text = instagramPost["caption"] as? String
             let user = instagramPost["author"] as? PFUser
@@ -31,6 +35,12 @@ class PostCell: UITableViewCell {
             profImageView.file = user?.object(forKey: "prof_pic") as? PFFile
             profImageView.loadInBackground()
             print(PFUser.current()?.object(forKey: "description") as? String)
+            //make profile pic circle
+            profImageView.layer.borderWidth = 1
+            profImageView.layer.masksToBounds = false
+            profImageView.layer.borderColor = UIColor.black.cgColor
+            profImageView.layer.cornerRadius = profImageView.frame.height/2
+            profImageView.clipsToBounds = true
             
         }
     }
