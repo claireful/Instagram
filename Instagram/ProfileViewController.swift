@@ -74,11 +74,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         
     }
     
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        collectionView.dataSource = self
+    override func viewDidAppear(_ animated: Bool) {
         let curUser = PFUser.current()
         usernameLabel.text = curUser?.username
         refreshForUser()
@@ -91,8 +87,29 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource {
         profImageView.clipsToBounds = true
         profImageView.loadInBackground()
         descriptionLabel.text = curUser?.object(forKey:
-        "description") as! String
+            "description") as! String
         print("alright")
+
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        collectionView.dataSource = self
+//        let curUser = PFUser.current()
+//        usernameLabel.text = curUser?.username
+//        refreshForUser()
+//        print("hey")
+//        profImageView.file = curUser?.object(forKey: "prof_pic") as? PFFile
+//        profImageView.layer.borderWidth = 1
+//        profImageView.layer.masksToBounds = false
+//        profImageView.layer.borderColor = UIColor.black.cgColor
+//        profImageView.layer.cornerRadius = profImageView.frame.height/2
+//        profImageView.clipsToBounds = true
+//        profImageView.loadInBackground()
+//        descriptionLabel.text = curUser?.object(forKey:
+//        "description") as! String
+//        print("alright")
         
         // Do any additional setup after loading the view.
     }
