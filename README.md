@@ -20,7 +20,7 @@ The following **optional** features are implemented:
 
 - [ ] Style the login page to look like the real Instagram login page.
 - [ ] Style the feed to look like the real Instagram feed.
-- [x] User can use a tab bar to switch between all "Instagram" posts and posts published only by the user. AKA, tabs - [ ] for Home Feed and Profile
+- [x] User can use a tab bar to switch between all "Instagram" posts and posts published only by the user. AKA, tabs - [x] for Home Feed and Profile
 - [ ] Add a custom camera using the CameraManager library.
 - [ ] User can load more posts once he or she reaches the bottom of the feed using infinite scrolling.
 - [x] Show the username and creation time for each post
@@ -52,12 +52,24 @@ Here's a walkthrough of implemented user stories:
 
 1. User can sign up to create a new account using Parse authentication
 2. User can log in and log out of his or her account
+4. User can view the last 20 posts submitted to "Instagram"
+5. User can pull to refresh the last 20 posts submitted to "Instagram"
+6. User can tap a post to view post details, including timestamp and caption.
+<img src='http://i.imgur.com/IZcS47b.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+3. User can take a photo, add a caption, and post it to "Instagram"
+7. User can use a tab bar to switch between all "Instagram" posts and posts published only by the user. AKA, tabs - [x] for Home Feed and Profile
+<img src='http://i.imgur.com/se3ek2d.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
-
-
-
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+8. Allow the logged in user to add a profile photo
+9. Display the profile photo with each post
+10. Run your app on your phone and use the camera to take the photo
+11. Allow logged in user to ad a bio/description
+12. User can edit profile picture and description in an edit profile page
+13. Style profile pictures to be circular with black borders
+14. Style pictures in profile with random color borders
+<img src= 'http://i.imgur.com/K5Zjek1.gif' 'title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
